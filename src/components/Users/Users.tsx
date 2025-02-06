@@ -19,7 +19,7 @@ interface UserType {
         name: string;
     };
     email: string;
-    id: 1;
+    id: number;
     name: string;
     phone: string;
     username: string;
@@ -77,7 +77,7 @@ function Users() {
 
     return (
         <div>
-            <div className="flex justify-evenly items-center mb-8 mt-4">
+            <div className="lg:flex justify-evenly items-center mb-8 mt-4 space-y-4">
                 <div>
                     <label htmlFor="">
                         <input onChange={handleSearch} type="text" placeholder="Search by name"

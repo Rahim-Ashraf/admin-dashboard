@@ -15,7 +15,7 @@ const Login = () => {
         router.push('/admin-dashboard/users')
     }
     return (
-        <div className="max-w-screen-lg mx-auto pt-4">
+        <div className="max-w-screen-lg mx-auto p-4">
             <h1 className="text-5xl mb-2">Login</h1>
             <p className="mb-8">(Please use any demo Email and Password)</p>
             <form onSubmit={handleLogin}>

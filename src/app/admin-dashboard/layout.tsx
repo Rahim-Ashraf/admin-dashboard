@@ -10,9 +10,9 @@ function layout({ children }: Readonly<{
     const pathname = usePathname()
 
     return (
-        <div className="px-4 flex justify-between max-w-screen-2xl mx-auto">
-            <div className="lg:w-1/5 border-r p-2">
-                <ul>
+        <div className="px-4 lg:flex justify-between max-w-screen-2xl mx-auto">
+            <div className="lg:w-1/5 lg:border-r p-2">
+                <ul className="flex lg:flex-col gap-4">
                     <li><Link href="/admin-dashboard/users"
                         className={`${pathname === '/admin-dashboard/users' ? 'text-sky-500' : ''}`}>All Users</Link></li>
                     <li><Link href="/admin-dashboard/products"

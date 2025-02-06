@@ -97,7 +97,7 @@ function Products() {
 
     return (
         <div className="px-4">
-            <div className="flex justify-evenly items-center mb-8 mt-4">
+            <div className="lg:flex justify-evenly items-center mb-8 mt-4 space-y-4">
                 <div>
                     <Link href="/admin-dashboard/products/add-product"
                         className="bg-sky-500 text-white px-4 py-2 rounded mt-4">Add new Product</Link>
