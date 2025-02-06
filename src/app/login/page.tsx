@@ -1,15 +1,19 @@
 "use client"
 
 import { useRouter } from "next/navigation"
+import { FormEvent, useEffect, useState } from "react"
 
 const Login = () => {
-    const token = localStorage.getItem('auth')
-    console.log(token, "df")
+    const [token, setToken] = useState<string | null>(null);
+    useEffect(() => {
+        setToken(localStorage.getItem("auth"));
+    }, []);
+
     const router = useRouter()
     if (token === "token") {
         router.push('/admin-dashboard/users')
     }
-    const handleLogin = (e: any) => {
+    const handleLogin = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         localStorage.setItem('auth', 'token')
         router.push('/admin-dashboard/users')

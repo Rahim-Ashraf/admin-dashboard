@@ -1,17 +1,25 @@
 "use client"
 
+import { FormEvent, useState } from "react";
 import Swal from "sweetalert2";
 
-function page() {
+function AddProduct() {
+  const initialValues = {
+    name: "",
+    color: "",
+    capacity: ""
+  }
+  const [formData, setFormData] = useState(initialValues);
 
-  const handleProductUpload = async (event: any) => {
+  const handleProductUpload = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const name = event.target.name.value;
     const data = {
-      color: event.target.color.value,
-      capacity: event.target.capacity.value
+      name: formData.name,
+      data: {
+        color: formData.color,
+        capacity: formData.capacity,
+      }
     }
-    const formData = { name, data }
 
     try {
       const response = await fetch("https://api.restful-api.dev/objects", {
@@ -19,7 +27,7 @@ function page() {
         headers: {
           "content-type": "application/json"
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(data)
       })
       console.log(await response.json())
       Swal.fire({
@@ -31,9 +39,8 @@ function page() {
       });
 
       // clear form after successfully upload
-      event.target.name.value = ""
-      event.target.color.value = ""
-      event.target.capacity.value = ""
+      setFormData(initialValues)
+
     } catch (error) {
       console.log(error)
       Swal.fire({
@@ -49,17 +56,17 @@ function page() {
       className="max-w-screen-sm mx-auto">
       <label>
         Product name
-        <input name="name" type="text" placeholder="Product name" required
+        <input onChange={(e) => setFormData({ ...formData, name: e.target.value })} type="text" placeholder="Product name" required
           className="px-4 py-2 rounded w-full border border-slate-600 mb-4" />
       </label>
       <label>
         Product color
-        <input name="color" type="text" placeholder="Product color" required
+        <input onChange={(e) => setFormData({ ...formData, color: e.target.value })} type="text" placeholder="Product color" required
           className="px-4 py-2 rounded w-full border border-slate-600 mb-4" />
       </label>
       <label>
         Capacity
-        <input name="capacity" type="text" placeholder="Capacity" required
+        <input onChange={(e) => setFormData({ ...formData, capacity: e.target.value })} type="text" placeholder="Capacity" required
           className="px-4 py-2 rounded w-full border border-slate-600 mb-4" />
       </label>
       <input type="submit" value="Upload Product"
@@ -68,4 +75,4 @@ function page() {
   )
 }
 
-export default page
+export default AddProduct

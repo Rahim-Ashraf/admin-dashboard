@@ -82,7 +82,6 @@ function Users() {
     const handleOpen = (user: UserType) => {
         setSingleUser(user)
         setOpen(true)
-        console.log(user)
     }
     const handleClose = () => setOpen(false);
 
