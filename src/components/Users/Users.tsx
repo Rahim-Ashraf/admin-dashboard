@@ -4,26 +4,26 @@ import { useEffect, useState } from "react";
 
 interface UserType {
     address: {
-        city: "Gwenborough";
+        city: string;
         geo: {
-            lat: "-37.3159";
-            lng: "81.1496";
+            lat: string;
+            lng: string;
         };
-        street: "Kulas Light";
-        suite: "Apt. 556";
-        zipcode: "92998-3874";
+        street: string;
+        suite: string;
+        zipcode: string;
     };
     company: {
-        bs: "harness real-time e-markets";
-        catchPhrase: "Multi-layered client-server neural-net";
-        name: "Romaguera-Crona";
+        bs: string;
+        catchPhrase: string;
+        name: string;
     };
-    email: "Sincere@april.biz";
+    email: string;
     id: 1;
-    name: "Leanne Graham";
-    phone: "1-770-736-8031 x56442";
-    username: "Bret";
-    website: "hildegard.org";
+    name: string;
+    phone: string;
+    username: string;
+    website: string;
 }
 
 function Users() {
@@ -41,11 +41,18 @@ function Users() {
     }, [])
 
     return (
-        <div className="px-4 flex justify-between">
+        <div className="px-4 grid grid-cols-1 lg:grid-cols-2 gap-4 justify-between">
             {
                 users.map(user => (
-                    <div key={user.id}>
-                        {user.name}
+                    <div key={user.id}
+                        className="bg-slate-100 rounded p-4 lg:flex justify-between items-end"
+                    >
+                        <div>
+                            <h3><span className="font-semibold">Name:</span> {user.name}</h3>
+                            <h4><span className="font-semibold">Email:</span> {user.email}</h4>
+                            <h4><span className="font-semibold">City:</span> {user.address.city}</h4>
+                        </div>
+                        <button className="bg-sky-500 text-white px-4 py-2 rounded mt-4">View details</button>
                     </div>
                 ))
             }
