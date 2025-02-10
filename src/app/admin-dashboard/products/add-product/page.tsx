@@ -56,17 +56,20 @@ function AddProduct() {
       className="max-w-screen-sm mx-auto">
       <label>
         Product name
-        <input onChange={(e) => setFormData({ ...formData, name: e.target.value })} type="text" placeholder="Product name" required
+        <input onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          type="text" placeholder="Product name" value={formData.name} required
           className="px-4 py-2 rounded w-full border border-slate-600 mb-4" />
       </label>
       <label>
         Product color
-        <input onChange={(e) => setFormData({ ...formData, color: e.target.value })} type="text" placeholder="Product color" required
+        <input onChange={(e) => setFormData({ ...formData, color: e.target.value })}
+          type="text" placeholder="Product color" value={formData.color} required
           className="px-4 py-2 rounded w-full border border-slate-600 mb-4" />
       </label>
       <label>
         Capacity
-        <input onChange={(e) => setFormData({ ...formData, capacity: e.target.value })} type="text" placeholder="Capacity" required
+        <input onChange={(e) => setFormData({ ...formData, capacity: e.target.value })}
+          type="text" placeholder="Capacity" value={formData.capacity} required
           className="px-4 py-2 rounded w-full border border-slate-600 mb-4" />
       </label>
       <input type="submit" value="Upload Product"
